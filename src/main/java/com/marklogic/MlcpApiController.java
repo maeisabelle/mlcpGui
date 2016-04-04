@@ -53,6 +53,7 @@ public class MlcpApiController {
       byte[] contentBytes = mlcpConfigContent.getBytes(StandardCharsets.UTF_8);
       InputStream inputStream = new ByteArrayInputStream(contentBytes);
       HttpHeaders headers = new HttpHeaders();
+      addRemoveCachingInHeaders(headers);
       headers.add("content-disposition", "attachment; filename=" + MLCP_CONFIG_FILENAME);
       return ResponseEntity
               .ok()
@@ -60,6 +61,12 @@ public class MlcpApiController {
               .contentType(MediaType.TEXT_PLAIN)
               .headers(headers)
               .body(new InputStreamResource(inputStream));
+    }
+
+    private void addRemoveCachingInHeaders(HttpHeaders headers) {
+        headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
+        headers.add("Pragma", "no-cache");
+        headers.add("Expires", "0");
     }
 
     /**
