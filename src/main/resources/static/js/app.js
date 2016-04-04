@@ -36,7 +36,7 @@ $(document).ready(function() {
 			    {
 			      //badge: 'badge-customicon',
 			      label: checkedVal.charAt(0).toUpperCase() + checkedVal.substring(1).concat(" ").concat("Settings"),
-			      pane: '<form method="POST" id="mlcp_settings_form" action="/mlcp"><div id="mlcp_settings">Content</div><div id="optional_settings"></div><input type="submit" class="btn btn-primary" value="Submit" /></form>'
+			      pane: '<form method="POST" id="mlcp_settings_form" action="/api/mlcp/download"><div id="mlcp_settings">Content</div><div id="optional_settings"></div><input type="submit" class="btn btn-primary" value="Submit" /></form>'
 			    }
 			  ]);
 
